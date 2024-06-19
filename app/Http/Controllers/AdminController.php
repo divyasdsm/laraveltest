@@ -90,10 +90,10 @@ class AdminController extends Controller
     public function viewAccountant()
     {
       
-        $role = Role::where('name', 'accountant')->first();
+        // $role = Role::where('name', 'accountant')->first();
 
-            $datas = User::role($role->name)->get();
-         
+        //     $datas = User::role($role->name)->get();
+        $datas = User::where('id','<>',1)->get();
 
         return view('admin.view-accountant',compact('datas'));
     }
@@ -131,7 +131,7 @@ class AdminController extends Controller
 if($request->id != null)
 {
 
-    $acc = AccountantEntry::where('user_id',$request->id)->update(
+    $acc = AccountantEntry::where('id',$request->id)->update(
         [
             'name' => $request->name,
             'type' => $request->type,
@@ -163,14 +163,14 @@ if($request->id != null)
 
     public function editEntry($id = null)
     {
-        $acc = AccountantEntry::where('user_id',$id)->first();
+        $acc = AccountantEntry::where('id',$id)->first();
        
         return view('admin.add-entry',compact('acc'));
     }
 
     public function deleteEntry($id = null)
     {
-        $acc = AccountantEntry::where('user_id',$id)->delete();
+        $acc = AccountantEntry::where('id',$id)->delete();
         
         return back();
     }

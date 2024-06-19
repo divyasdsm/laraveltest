@@ -26,10 +26,10 @@
             <th>type</th>
             <th>amount</th>
             <th>action</th>
-            <tr>
+            
 
             @foreach($entries as $data)
-           
+            <tr>
             <td>{{$loop->index+1}}</td>
             <td>{{$data->name}}</td>
             <td>{{$data->type}}</td>
@@ -38,8 +38,9 @@
                 <a href="{{url('admin/edit-entry/'.$data->id)}}">Edit</a>
                 <a href="{{url('admin/delete-entry/'.$data->id)}}">Delete</a>
             </td>
-           @endforeach
             </tr>
+           @endforeach
+           
 
         </table>
         </div>

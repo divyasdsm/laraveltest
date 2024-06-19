@@ -25,9 +25,9 @@
             <th>name</th>
             <th>email</th>
             <th>action</th>
-            <tr>
+            
             @foreach($datas as $data)
-           
+            <tr>
             <td>{{$loop->index+1}}</td>
             <td>{{$data->name}}</td>
             <td>{{$data->email}}</td>
@@ -35,8 +35,9 @@
                 <a href="{{url('admin/edit-accountant/'.$data->id)}}">Edit</a>
                 <a href="{{url('admin/delete-accountant/'.$data->id)}}">Delete</a>
             </td>
-           @endforeach
             </tr>
+           @endforeach
+           
 
         </table>
         </div>
